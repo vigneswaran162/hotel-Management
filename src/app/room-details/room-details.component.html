@@ -1,0 +1,108 @@
+<div class="row d-flex align-items-center justify-content-center fixed-top">
+    <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light  px-5 py-4">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">.HOTEL</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">our rooms</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contac us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
+    
+        <div class="col-md-10  p-3 mb-5 bg-body rounded ">
+            <div class="row d-flex align-items-center justify-content-center">
+              <div class="col-md-2 d-flex  justify-content-start flex-column">
+                <span>BOOK YOUR</span>
+                <span>ROOMS</span>
+              </div>
+              <div class="col-md-3">
+                <p-calendar [style]="{width: '100%'}" selectionMode="range" placeholder="CHECK IN CHECK OUT DATE"
+                  [showIcon]="true" [showOnFocus]="false" [iconDisplay]="'input'" dateFormat="dd.mm.yy"
+                  [readonlyInput]="true" />
+              </div>
+              <div class="col-md-3 d-flex align-items-center justify-content-around">
+                <div>
+                  <span>ROOMS & GUESTS</span> <br>
+                  <h6>ROOM & ADULTS</h6>
+                </div>
+                <div>
+                
+                  <p-button  (onClick)="op.toggle($event)" styleClass="p-button"  icon="pi pi-angle-down" />
+                  <p-overlayPanel [style]="{ width: '340px' }" #op>
+                  <div class="row">
+                    <div class="room col-md-12" *ngFor="let item of RoomDet;let i = index ">
+                      <div class="head-sub d-flex align-items-center justify-content-between">
+                        <h6 style=" color: #2c2c54 !important;">ROOM {{i +1}}</h6>
+                        <h6 class="text-danger"  *ngIf="RoomDet.length > 1"  (click)="DeletRow(i)">REMOVE ROOM</h6>
+                      </div>
+                      <div class="box-1 d-flex align-items-center justify-content-between mb-3">
+                        <div class="content">
+                         <span class="text1">{{item.Text1}}</span>
+                        </div>
+                        <div class=" d-flex align-items-center justify-content-between">
+                          <button class="btnicon" [disabled]="item.minus"  (click)="minus('adult',i)"><i class="pi pi-minus icon" ></i></button>
+                          <h5 class="mx-2 number" >{{item.NoAdults}}</h5>
+                          <button class="btnicon"  [disabled]="item.add"  (click)="add('adult',i)"><i class="pi pi-plus icon" ></i></button>
+                        </div>
+                      </div>
+                      <div class="box-1 d-flex align-items-center justify-content-between mb-3">
+                        <div class="content">
+                          <span class="text1">{{item.Text2}}</span>
+                         </div>
+                         <div class=" d-flex d-flex align-items-center justify-content-between text-center">
+                          <button class="btnicon" [disabled]="item.childrenminus" (click)="minus('children',i)" > <i class="pi pi-minus icon"></i> </button>
+                          <h5 class="mx-2 number">{{item.NoChilldrens}}</h5>
+                  
+                          <button class="btnicon"  [disabled]="item.childrenadd" (click)="add('children',i)"><i class="pi pi-plus icon" ></i></button>
+                         </div>
+                      
+                      </div>
+                     <hr>
+                    
+                      
+                    </div>
+                    <div class="col-md-12 box-1 d-flex align-items-center justify-content-between ">
+                      <div>
+                        <button class="btn2" (click)="AddRoom()">ADD ROOM</button>
+                      </div>
+                    <div>
+                      <button class="btn3">DONE</button>
+                    </div>
+                  </div>
+                  </div>
+                  </p-overlayPanel>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button class="button" >MODIFY</button>
+              </div>
+            </div>
+        
+    </div>
+</div>
+
+
+  
+  
+  

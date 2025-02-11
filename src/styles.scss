@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    font-family: "Montserrat", sans-serif !important;
+}
+input:focus{
+box-shadow: none !important;
+border:  1px solid gray  !important;
+}
+input:hover{
+    box-shadow: none !important;  
+    border:  1px solid gray !important;
+}
+textarea:focus{
+    box-shadow: none !important;
+    border:  1px solid gray !important;
+}
+textarea:hover{
+    box-shadow: none !important;  
+    border:  1px solid gray ;
+}
+
+::ng-deep .p-selectbutton .p-button.p-highlight {
+    color: #ffffff !important;
+    font-weight: 700;
+  }
+
+
+  ::ng-deep {
+    .p-selectbutton .p-button.p-highlight {
+      background: red !important;
+      background-color: red !important;
+    }
+  
+    .p-selectbutton .p-button.p-highlight:hover {
+      background: green !important;
+    }
+  }
+  ::ng-deep .ui-selectbutton .ui-button.ui-state-active {
+    color: #e45000 !important;
+    font-weight: 700;
+  }

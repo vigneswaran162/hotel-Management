@@ -1,0 +1,245 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top px-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">.HOTEL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">our rooms</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Gallery</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contac us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-md-6 d-flex align-items-center justify-content-center p-5 m-5 m-md-0 ">
+        <div class="content" style="width: 400px;">
+          <h1>HOTEL FOR YOU</h1>
+          <h4>AND ENJOY YOUR VACCATION</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae impedit sapiente quam
+            nemo.</p>
+          <button class="button">EXPLORE NOW</button>
+        </div>
+      </div>
+      <div class="col-md-6 p-5 d-none d-md-block">
+        <img src="../assets/fornt.png" width="500px" class="img-fluid" alt="">
+      </div>
+  
+  
+  
+  
+  
+      <div class="col-md-11 shadow-lg p-3 mb-5 bg-body rounded">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-md-2 d-flex  justify-content-start flex-column">
+            <span>BOOK YOUR</span>
+            <span>ROOMS</span>
+          </div>
+          <div class="col-md-3">
+            <p-calendar [style]="{width: '100%'}" selectionMode="range" placeholder="CHECK IN CHECK OUT DATE"
+              [showIcon]="true" [showOnFocus]="false" [iconDisplay]="'input'" dateFormat="dd.mm.yy"
+              [readonlyInput]="true" />
+          </div>
+          <div class="col-md-3 d-flex align-items-center justify-content-around">
+            <div>
+              <span>ROOMS & GUESTS</span> <br>
+              <h6>ROOM & ADULTS</h6>
+            </div>
+            <div>
+            
+              <p-button   (onClick)="op.toggle($event)" class="p-button"  icon="pi pi-angle-down" />
+              <p-overlayPanel [style]="{ width: '340px' }" #op>
+              <div class="row">
+                <div class="room col-md-12" *ngFor="let item of RoomDet;let i = index ">
+                  <div class="head-sub d-flex align-items-center justify-content-between">
+                    <h6 style=" color: #2c2c54 !important;">ROOM {{i +1}}</h6>
+                    <h6 class="text-danger"  *ngIf="RoomDet.length > 1"  (click)="DeletRow(i)">REMOVE ROOM</h6>
+                  </div>
+                  <div class="box-1 d-flex align-items-center justify-content-between mb-3">
+                    <div class="content">
+                     <span class="text1">{{item.Text1}}</span>
+                    </div>
+                    <div class=" d-flex align-items-center justify-content-between">
+                      <button class="btnicon" [disabled]="item.minus"  (click)="minus('adult',i)"><i class="pi pi-minus icon" ></i></button>
+                      <h5 class="mx-2 number" >{{item.NoAdults}}</h5>
+                      <button class="btnicon"  [disabled]="item.add"  (click)="add('adult',i)"><i class="pi pi-plus icon" ></i></button>
+                    </div>
+                  </div>
+                  <div class="box-1 d-flex align-items-center justify-content-between mb-3">
+                    <div class="content">
+                      <span class="text1">{{item.Text2}}</span>
+                     </div>
+                     <div class=" d-flex d-flex align-items-center justify-content-between text-center">
+                      <button class="btnicon" [disabled]="item.childrenminus" (click)="minus('children',i)" > <i class="pi pi-minus icon"></i> </button>
+                      <h5 class="mx-2 number">{{item.NoChilldrens}}</h5>
+              
+                      <button class="btnicon"  [disabled]="item.childrenadd" (click)="add('children',i)"><i class="pi pi-plus icon" ></i></button>
+                     </div>
+                  
+                  </div>
+                 <hr>
+                
+                  
+                </div>
+                <div class="col-md-12 box-1 d-flex align-items-center justify-content-between ">
+                  <div>
+                    <button class="btn2" (click)="AddRoom()">ADD ROOM</button>
+                  </div>
+                <div>
+                  <button class="btn3">DONE</button>
+                </div>
+              </div>
+              </div>
+              </p-overlayPanel>
+              <!-- <img width="25"  class="arrow" height="25" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/> -->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button class="button" >SEARCH</button>
+          </div>
+        </div>
+  
+  
+      </div>
+  
+  
+      <div class="col-md-12">
+        <h2 class="mb-5 px-5">OUR ROOMS</h2>
+        <div class="row d-flex align-items-center justify-content-center gap-5">
+          <div class=" card-room  shadow-lg">
+            <div class="img-box p-2">
+              <img src="../assets/king.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="room-content p-2">
+              <h5>King Room</h5>
+              <div class="text-con d-flex align-items-center justify-content-between mb-3">
+                <span class="bed text-muted">1 Single Bed</span>
+                <span class="Room-rate ">Per Day: <i class="fa-solid fa-indian-rupee-sign"></i> 3000</span>
+              </div>
+              <div class="text-con d-flex align-items-center justify-content-between mb-3">
+                <span class="text"><b>Size:</b> 9 m²</span>
+                <span class=" text"><b>Max Capacity:</b> 3</span>
+              </div>
+              <button class="btn-room">ROOM DETAILS</button>
+            </div>
+          </div>
+          <div class=" card-room  shadow-lg">
+            <div class="img-box p-2">
+              <img src="../assets/Queen.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="room-content p-2">
+              <h5>Queen Room</h5>
+              <div class="text-con d-flex align-items-center justify-content-between mb-3">
+                <span class="bed text-muted">1 Single Bed</span>
+                <span class="Room-rate ">Per Day: <i class="fa-solid fa-indian-rupee-sign"></i> 2000</span>
+              </div>
+              <div class="text-con d-flex align-items-center justify-content-between mb-3">
+                <span class="text"><b>Size:</b> 9 m²</span>
+                <span class=" text"><b>Max Capacity:</b> 2</span>
+              </div>
+              <button class="btn-room">ROOM DETAILS</button>
+            </div>
+          </div>
+  
+          <div class=" card-room  shadow-lg">
+            <div class="img-box p-2">
+              <img src="../assets/twin.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="room-content p-2">
+              <h5>Twin Room</h5>
+              <div class="text-con d-flex align-items-center justify-content-between mb-3">
+                <span class="bed text-muted">2 Double Bed</span>
+                <span class="Room-rate ">Per Day: <i class="fa-solid fa-indian-rupee-sign"></i> 2500</span>
+              </div>
+              <div class="text-con d-flex align-items-center justify-content-between mb-3">
+                <span class="text"><b>Size:</b> 9 m²</span>
+                <span class=" text"><b>Max Capacity:</b> 2</span>
+              </div>
+              <button class="btn-room">ROOM DETAILS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <div class="col-md-12 d-flex align-items-center justify-content-center  flex-wrap">
+        <div class="shadow rounded p-2 m-2  d-flex align-items-center justify-content-center " style="width: 300px;height: 150px;">
+          <img src="../assets/support.png" width="130px" alt="">
+          <div class="faclitiy-content">
+                <b>24 hrs</b> <br>
+                <b>Support</b>
+          </div>
+        </div> 
+        <div class="shadow rounded p-2 m-2  d-flex align-items-center justify-content-center" style="width: 300px;height: 150px;">
+          <img src="../assets/network.png" width="130px" alt="">
+  
+          <div class="faclitiy-content">
+            <b>Free</b> <br>
+            <b>Wifi</b>
+      </div>
+        </div> 
+        <div class="shadow rounded p-2 m-2  d-flex align-items-center justify-content-center" style="width: 300px;height: 150px;">
+          <img src="../assets/backup.png" width="130px" alt="">
+  
+          <div class="faclitiy-content">
+            <b>Power</b> <br>
+            <b>Backup</b>
+          </div>
+  
+        </div> 
+        <div class="shadow rounded p-2 m-2  d-flex align-items-center justify-content-center" style="width: 300px;height: 150px;">
+          <img src="../assets/car.png" width="130px" alt="">
+  
+          <div class="faclitiy-content">
+            <b>Car</b> <br>
+            <b>Parking</b>
+          </div>
+        </div> 
+  
+      </div> -->
+  
+      <div class="col-md-5 d-none d-md-block p-5">
+        <img src="../assets/second.png" width="600px" class="img-fluid" alt="">
+      </div>
+      <div class="col-md-5 px-5">
+        <h2 class="mb-3">CONTACT US</h2>
+  
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name</label>
+          <input type="email" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Subject</label>
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+  
+        <button class="btn btn-outline-dark w-100">Send Mail</button>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  

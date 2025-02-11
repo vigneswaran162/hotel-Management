@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'webapp';
+export class HomeComponent {
   date:any;
 
   RoomDet:any =[];
@@ -76,7 +75,5 @@ DeletRow(i:any){
 
  isClicked: boolean = false;
 
- toggleBackground() {
-   this.isClicked = !this.isClicked; 
- }
+
 }
