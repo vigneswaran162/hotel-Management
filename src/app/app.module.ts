@@ -14,7 +14,6 @@ import { RoomBookingComponent } from './room-booking/room-booking.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { StepperModule } from 'primeng/stepper';
 import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './home/home.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
@@ -39,7 +38,6 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     MatButtonModule,
     MatStepperModule,
     OverlayPanelModule,
-    StepperModule,
     ButtonModule
     
   ],
